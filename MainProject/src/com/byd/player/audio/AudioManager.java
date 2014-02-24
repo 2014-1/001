@@ -13,6 +13,8 @@ public class AudioManager {
         void onDataChange();
     }
 
+    private List<DataListener> mListeners = new ArrayList<AudioManager.DataListener>();
+
     private Context mContext = null;
     private List<Song> mSongsList = new ArrayList<Song>();
 
@@ -25,6 +27,18 @@ public class AudioManager {
 
     public static AudioManager getInstance() {
         return sInstance;
+    }
+
+    public void addDataListener(DataListener listener) {
+        if (!mListeners.contains(listener)) {
+            mListeners.add(listener);
+        }
+    }
+
+    public void removeDataListener(DataListener listener) {
+        if (mListeners.contains(listener)) {
+            mListeners.remove(listener);
+        }
     }
 
     public void load() {
@@ -50,6 +64,8 @@ public class AudioManager {
     }
 
     public void notifyDataChange() {
-
+        for (DataListener listener : mListeners) {
+            listener.onDataChange();
+        }
     }
 }

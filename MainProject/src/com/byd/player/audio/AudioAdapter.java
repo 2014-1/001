@@ -15,9 +15,14 @@ import com.byd.player.R;
 import com.byd.player.audio.AudioManager.DataListener;
 
 public class AudioAdapter extends BaseAdapter implements DataListener {
+    public final static int MODE_NORMAL = 0;
+    public final static int MODE_EDIT = MODE_NORMAL + 1;
+
     private List<AudioItem> mData = new ArrayList<AudioItem>();
     private Context mContext = null;
     private LayoutInflater mInflater;
+
+    private int mMode = MODE_NORMAL;
 
     public AudioAdapter(Context context, LayoutInflater inflater) {
         mContext = context;
@@ -32,6 +37,21 @@ public class AudioAdapter extends BaseAdapter implements DataListener {
             mData.add(new AudioItem(song));
         }
         notifyDataSetChanged();
+    }
+
+    public void setMode(int mode) {
+        if (mMode != mode) {
+            mMode = mode;
+            notifyDataSetChanged();
+        }
+    }
+
+    public boolean isNormalMode() {
+        return mMode == MODE_NORMAL;
+    }
+
+    public boolean isEditMode() {
+        return mMode == MODE_EDIT;
     }
 
     @Override
