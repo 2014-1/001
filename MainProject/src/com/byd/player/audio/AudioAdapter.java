@@ -3,8 +3,6 @@ package com.byd.player.audio;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.byd.player.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,20 +11,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AudioAdapter extends BaseAdapter {
-    private List<Song> mData = new ArrayList<Song>();
+import com.byd.player.R;
+import com.byd.player.audio.AudioManager.DataListener;
+
+public class AudioAdapter extends BaseAdapter implements DataListener {
+    private List<AudioItem> mData = new ArrayList<AudioItem>();
     private Context mContext = null;
     private LayoutInflater mInflater;
 
     public AudioAdapter(Context context, LayoutInflater inflater) {
         mContext = context;
         mInflater = inflater;
-        mData = AudioManager.getInstance().getSongs();
+        setData(AudioManager.getInstance().getSongs());
     }
 
     public void setData(List<Song> data) {
         mData.clear();
-        mData.addAll(data);
+
+        for (Song song : data) {
+            mData.add(new AudioItem(song));
+        }
         notifyDataSetChanged();
     }
 
@@ -36,7 +40,7 @@ public class AudioAdapter extends BaseAdapter {
     }
 
     @Override
-    public Song getItem(int pos) {
+    public AudioItem getItem(int pos) {
         return mData.get(pos);
     }
 
@@ -61,9 +65,10 @@ public class AudioAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.mIamgeAlbum.setImageResource(R.drawable.test_image_album);
-        viewHolder.mTextAudioName.setText(R.string.text_name);
-        viewHolder.mTextAudioSinger.setText(R.string.text_singer);
+        AudioItem item = getItem(pos);
+        viewHolder.mIamgeAlbum.setImageBitmap(item.getAlbum());
+        viewHolder.mTextAudioName.setText(item.getAudioName());
+        viewHolder.mTextAudioSinger.setText(item.getSinger());
         return convertView;
     }
 
@@ -71,7 +76,10 @@ public class AudioAdapter extends BaseAdapter {
         ImageView mIamgeAlbum;
         TextView mTextAudioName;
         TextView mTextAudioSinger;
+    }
 
-        // ImageView mBtnDelete;
+    @Override
+    public void onDataChange() {
+        setData(AudioManager.getInstance().getSongs());
     }
 }

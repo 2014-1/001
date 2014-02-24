@@ -1,8 +1,5 @@
 package com.byd.player.audio;
 
-import java.io.File;
-
-import android.util.Log;
 
 public class Song {
     /**
@@ -202,6 +199,7 @@ public class Song {
     public String getFilePath() {
         return mFilePath;
     }
+    
 
     /**
      * setmFilePath()

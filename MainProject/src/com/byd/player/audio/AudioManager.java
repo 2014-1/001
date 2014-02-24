@@ -21,26 +21,6 @@ public class AudioManager {
 
     public void init(Context context) {
         mContext = context;
-        
-        // TODO test
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
-        mSongsList.add(new Song());
     }
 
     public static AudioManager getInstance() {

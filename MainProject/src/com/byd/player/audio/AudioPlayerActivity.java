@@ -1,18 +1,14 @@
 package com.byd.player.audio;
 
-import com.byd.player.R;
-
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
+
+import com.byd.player.R;
 
 public class AudioPlayerActivity extends Activity {
 
