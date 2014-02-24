@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/head"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <Button
+        android:id="@+id/button_audio_header_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/button_back"
+        android:clickable="true" />
+
+    <Button
+        android:id="@+id/button_header_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:text="菜单"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tv_header_title"
+        style="@style/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/audio_player"
+        android:textSize="20sp" />
+
+</RelativeLayout>

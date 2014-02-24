@@ -25,6 +25,7 @@
     <string name="btn_text_sdcard">存储卡</string>
     <string name="search">搜索</string>
     <string name="all_music">所有音乐</string>
+    <string name="audio_player">音乐播放</string>
     <string name="btn_text_usb">USB</string>
     <string name="btn_text_aux">AUX</string>
     <string name="btn_text_mobile">手机音乐</string>
